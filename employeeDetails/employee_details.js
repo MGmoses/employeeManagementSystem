@@ -1,7 +1,7 @@
 const employees = [
-    { id: 1, name: 'Thahseen Ali', age: 34, department: 'IT', salary: 1000 },
-    { id: 2, name: 'Abdulla Zubair', age: 35, department: 'HR', salary: 2000 },
-    { id: 3, name: 'Hidetaka Miyazaki', age: 51, department: 'Game Design', salary: 100000 },
+    { id: 1, name: 'Thahseen Ali', age: 34, department: 'IT', salary: 1000, specialization: 'yapping' },
+    { id: 2, name: 'Abdulla Zubair', age: 35, department: 'HR', salary: 2000, specialization: 'Humans' },
+    { id: 3, name: 'Hidetaka Miyazaki', age: 51, department: 'Game Design', salary: 100000, specialization: 'Torture' },
     //... More employee records to be added here
 ];
 
@@ -25,22 +25,22 @@ function displayHREmployees() {
     document.getElementById('employeesDetails').innerHTML = hrEmployeesDisplay;
 }
 
-function findEmployeesById(employeeID) {
-    const foundEmployee = employees.find(employee => employee.id === employeeId);
-    if (foundEmployee) {
-        document.getElementById('employeesDetails').innerHTML = `<p>${foundEmployee.id}: ${foundEmployee.name}: ${foundEmployee.name} - ${foundEmployee.department} - $${foundEmployee.salary}<p>`;
-    }
-    else{
+function findEmployeeById(employeeId) {
+      const foundEmployee = employees.find(employee => employee.id === employeeId);
+      if (foundEmployee) {
+      document.getElementById('employeesDetails').innerHTML =`<p>${foundEmployee.id}: ${foundEmployee.name}: ${foundEmployee.name} - ${foundEmployee.department} - $${foundEmployee.salary}</p>`;
+      }
+      else{
         document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
-    }
-    function findEmployeesBySpecialization(employeeSpecialization) {
-    const specializedEmployee = employees.find(employee => employee.specialization == employeeSpecialization);
-    if (specializedEmployee) {
-        document.getElementById('employeeDetails').innerHTML = '<p>${foundEmployee.id}: ${foundEmployee.name}: ${foundEmployee.name} - ${foundEmployee.department} - $${foundEmployee.salary}<p>';
-    }
-    else{
-        document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
-    }
-}
+       }
+   }
 
-}
+function findEmployeesBySpecialization(employeeSpecialization) {
+      const specializedEmployee = employees.find(employee => employee.specialization === employeeSpecialization);
+      if (specializedEmployee) {
+      document.getElementById('employeesDetails').innerHTML =`<p>${specializedEmployee.id}: ${specializedEmployee.name}: ${specializedEmployee.name} - ${specializedEmployee.department} - $${specializedEmployee.salary}</p>`;
+      }
+      else{
+        document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
+       }
+   }
